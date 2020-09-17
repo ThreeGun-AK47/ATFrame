@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if titel %}
+        <title>{{title}} - ATFrame</title>
+        {% else %}
+        <title>Welcome to ATFrame</title>
+        {% endif %}
+    </head>
+    <body>
+    <div>ATFrame: <a href="/index">Home</a> | <a href="/">Next</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

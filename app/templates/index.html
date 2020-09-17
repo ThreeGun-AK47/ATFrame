@@ -1,8 +1,18 @@
 <html>
     <head>
-        <title>{{ title }}</title>
+        {% if title %}
+        <title>{{ title }} - ATFrame</title>
+        {% else %}
+        <title>Welcome to ATFrame</title>
+        {% endif %}
     </head>
     <body>
-        <h1>Hello,World</h1>
+        {% extends "base.html" %}
+        {% block content %}
+        <h1>Hello, {{user.nickname}}!</h1>
+        {% for post in posts %}
+        <div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>
+        {% endfor %}
+        {% endblock %}
     </body>
 </html>
