@@ -1,7 +1,19 @@
-from flask import render_template, redirect, url_for
 from app import app
+from flask import render_template
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title = '主页')
+    user = { 'nickname': 'Miguel' }
+    posts = [
+        {
+            'author': {'nickname':'John'},
+            'body': 'Beautiful day in portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
+    return render_template('index.html', title='Home', user=user, posts=posts)
